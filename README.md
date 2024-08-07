@@ -14,7 +14,7 @@ Welcome to the Fullstack Blog Project! This project aims to create a fully funct
 - Client-side route protection using HOC and next-router
 - MVC architecture with Prisma ORM
 - Pages router with Next.js for simplicity and more control over ssr and ssg
-- Clean and simple UI with with css modules and tailwindcss
+- Clean and simple UI with with css modules 
 
 ## Getting Started
 
