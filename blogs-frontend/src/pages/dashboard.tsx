@@ -54,7 +54,7 @@ const Dashboard: React.FC = () => {
                 ) : (
                     <div className={styles.grid}>
                         <button className={styles.fab} onClick={() => setShowModal(true)}>+</button>
-                        {blogs.map((blog) => (
+                        {blogs && blogs?.map((blog) => (
                             <Card
                                 key={blog.id}
                                 id={blog.id}

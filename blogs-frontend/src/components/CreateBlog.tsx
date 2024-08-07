@@ -37,7 +37,7 @@ const CreateBlog: React.FC<ICreateBlog> = ({ onClose, setBlogs }) => {
                 throw new Error('Failed to create blog post');
             }
 
-            const { data }: ApiResponse = await res.json();
+            const data = await res.json() as Blog;
             onClose();
             setBlogs((prevBlogs: Blog[]) => [data, ...prevBlogs]);
         } catch (e: any) {
