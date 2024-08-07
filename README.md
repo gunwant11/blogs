@@ -6,7 +6,7 @@ Deployed link : [https://blogs-dusky-delta.vercel.app/](https://blogs-dusky-delt
 API link (render.com) : [https://blogs-5yoe.onrender.com/](https://blogs-5yoe.onrender.com/)
 ## Technologies Used
 
-- Frontend: React.js
+- Frontend: Next.js
 - Backend: Node.js
 - Database: PostgreSQL (Supabase) with Prisma ORM
 
@@ -17,6 +17,8 @@ API link (render.com) : [https://blogs-5yoe.onrender.com/](https://blogs-5yoe.on
 - MVC architecture with Prisma ORM
 - Pages router with Next.js for simplicity and more control over ssr and ssg
 - Clean and simple UI with with css modules 
+- ```/``` contains all the blogs with ssr
+- ```/blog/:id``` contains the blog with the given id with ssg
 
 ## Getting Started
 
