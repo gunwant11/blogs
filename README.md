@@ -2,6 +2,8 @@
 
 Welcome to the Fullstack Blog Project! This project aims to create a fully functional blog application using a fullstack web development approach. 
 
+Deployed link : [https://blogs-dusky-delta.vercel.app/](https://blogs-dusky-delta.vercel.app/)
+API link (render.com) : [https://blogs-5yoe.onrender.com/](https://blogs-5yoe.onrender.com/)
 ## Technologies Used
 
 - Frontend: React.js
