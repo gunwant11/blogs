@@ -2,32 +2,42 @@ import React from "react";
 import styles from "@/styles/Blog.module.css";
 import Header from "@/components/Header";
 import { Blog } from "@/types/blog";
+import { GetStaticPropsContext } from "next";
 type Props = {
     data: any;
 };
 
 export async function getStaticPaths() {
-    const blogs = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/api/posts`);
-    const data = await blogs.json();
-    const paths = data.map((blog: Blog) => ({
-        params: { id: blog.id.toString() },
-    }));
-    return { paths, fallback: false };
+    try {
+        const response = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/api/posts`);
+        if (!response.ok) throw new Error('Failed to fetch posts');
+        const data = await response.json();
+        const paths = data.map((blog: Blog) => ({
+            params: { id: blog.id.toString() },
+        }));
+        return { paths, fallback: false };
+    } catch (error) {
+        console.error('Error in getStaticPaths:', error);
+        return { paths: [], fallback: false };
+    }
 }
 
-import { GetStaticPropsContext } from "next";
-
 export async function getStaticProps({ params }: GetStaticPropsContext) {
-    const id = params?.id;
-    const blog = await fetch(
-        `${process.env.NEXT_PUBLIC_API_URL}/api/post?id=${id}`
-    );
-    const data = await blog.json();
-    console.log(data);
-
-    return {
-        props: { data },
-    };
+    try {
+        const id = params?.id;
+        const response = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/api/post?id=${id}`);
+        if (!response.ok) throw new Error('Failed to fetch blog post');
+        const data = await response.json();
+        return {
+            props: { data },
+        };
+    } catch (error) {
+        console.error('Error in getStaticProps:', error);
+        return {
+            props: { data: null },
+            revalidate: 10,
+        };
+    }
 }
 
 const Page = (props: Props) => {
