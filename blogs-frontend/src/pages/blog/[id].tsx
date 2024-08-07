@@ -3,6 +3,7 @@ import styles from "@/styles/Blog.module.css";
 import Header from "@/components/Header";
 import { Blog } from "@/types/blog";
 import { GetStaticPropsContext } from "next";
+import { useRouter } from "next/router";
 type Props = {
     data: any;
 };
@@ -23,6 +24,8 @@ export async function getStaticPaths() {
 }
 
 export async function getStaticProps({ params }: GetStaticPropsContext) {
+
+
     try {
         const id = params?.id;
         const response = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/api/post?id=${id}`);
@@ -42,6 +45,8 @@ export async function getStaticProps({ params }: GetStaticPropsContext) {
 
 const Page = (props: Props) => {
 
+    const router = useRouter();
+
     return (
         <div className={styles.wrapper}>
             <Header title="Blog Posts" />
@@ -49,7 +54,7 @@ const Page = (props: Props) => {
 
             <div className={styles.box}>
                 <h2 className={styles.title}>
-                    <span className={styles.back}>
+                    <span className={styles.back} onClick={() => router.back()}>
                         <svg
                             viewBox="0 0 24 24"
                             fill="none"
