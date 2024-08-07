@@ -10,18 +10,8 @@ Welcome to the Fullstack Blog Project! This project aims to create a fully funct
 
 ## Features
 
-- User authentication and authorization
-- Create, read, update, and delete blog posts
-- Commenting system
-- Search functionality
-- Responsive design
-
-## Getting Started
-
-To get started with the Fullstack Blog Project, follow the steps below:
-
-1. Clone the repository: `git clone https://github.com/your-username/fullstack-blog.git`
-2. Install the dependencies: `npm install`
-3. Start the development server: `npm start`
-4. Open your browser and navigate to `http://localhost:3000`
-
+- User authentication and authorization with JWT tokens
+- Client-side route protection using HOC and next-router
+- MVC architecture with Prisma ORM
+- Pages router with Next.js for simplicity and more control over ssr
+- 

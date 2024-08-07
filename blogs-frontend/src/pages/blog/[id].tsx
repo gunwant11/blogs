@@ -1,7 +1,5 @@
 import React from "react";
 import styles from "@/styles/Blog.module.css";
-import { useEditor, EditorContent } from "@tiptap/react";
-import StarterKit from "@tiptap/starter-kit";
 import Header from "@/components/Header";
 import { Blog } from "@/types/blog";
 type Props = {
@@ -33,10 +31,6 @@ export async function getStaticProps({ params }: GetStaticPropsContext) {
 }
 
 const Page = (props: Props) => {
-    const editor = useEditor({
-        extensions: [StarterKit],
-        content: props.data.body,
-    });
 
     return (
         <div className={styles.wrapper}>
