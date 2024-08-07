@@ -6,7 +6,7 @@ Welcome to the Fullstack Blog Project! This project aims to create a fully funct
 
 - Frontend: React.js
 - Backend: Node.js
-- Database: MongoDB
+- Database: PostgreSQL (Supabase) with Prisma ORM
 
 ## Features
 
@@ -25,10 +25,3 @@ To get started with the Fullstack Blog Project, follow the steps below:
 3. Start the development server: `npm start`
 4. Open your browser and navigate to `http://localhost:3000`
 
-## Contributing
-
-We welcome contributions from the community! If you'd like to contribute to the Fullstack Blog Project, please follow our [contribution guidelines](CONTRIBUTING.md).
-
-## License
-
-This project is licensed under the [MIT License](LICENSE).
