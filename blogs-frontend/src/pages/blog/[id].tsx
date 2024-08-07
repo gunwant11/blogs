@@ -3,6 +3,7 @@ import styles from "@/styles/Blog.module.css";
 import { useEditor, EditorContent } from "@tiptap/react";
 import StarterKit from "@tiptap/starter-kit";
 import Header from "@/components/Header";
+import { Blog } from "@/types/blog";
 type Props = {
     data: any;
 };
@@ -10,14 +11,16 @@ type Props = {
 export async function getStaticPaths() {
     const blogs = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/api/posts`);
     const data = await blogs.json();
-    const paths = data.map((blog) => ({
+    const paths = data.map((blog: Blog) => ({
         params: { id: blog.id.toString() },
     }));
     return { paths, fallback: false };
 }
 
-export async function getStaticProps({ params }) {
-    const { id } = params;
+import { GetStaticPropsContext } from "next";
+
+export async function getStaticProps({ params }: GetStaticPropsContext) {
+    const id = params?.id;
     const blog = await fetch(
         `${process.env.NEXT_PUBLIC_API_URL}/api/post?id=${id}`
     );
@@ -73,7 +76,7 @@ const Page = (props: Props) => {
                     <div className={styles.info}>
                         <span className={styles.author}>by Author</span>
                         <span className={styles.date}>
-                            {Date(props.data.createdAt).toString().slice(3, 15)}
+                            {new Date(props.data.createdAt).toString().slice(3, 15)}
                         </span>
                     </div>
                     <span>

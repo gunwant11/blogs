@@ -1,4 +1,3 @@
-// context/MyContext.tsx
 import React, { createContext, useContext, useState, ReactNode } from 'react';
 
 
@@ -26,7 +25,7 @@ export const AppProvider = ({ children }: { children: ReactNode }) => {
 export const useAppContext = () => {
     const context = useContext(MyContext);
     if (!context) {
-        throw new Error('useGlobalContext must be used within an AppProvider');
+        throw new Error('useAppContext must be used within an AppProvider');
     }
     return context;
 };

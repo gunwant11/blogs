@@ -2,7 +2,6 @@
 const handleSignIn = async (email: string, password: string) => {
 
     try {
-        // Call API to sign in
         const response = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/api/signup`, {
             method: 'POST',
             headers: {
@@ -12,14 +11,11 @@ const handleSignIn = async (email: string, password: string) => {
         });
 
         if (response.ok) {
-            // Handle successful sign in here (e.g., update state)
-            // save token in local storage
             const data = await response.json();
             return { userId: data.userId, email: data.email };
 
         }
         else {
-            // Handle sign in error here (e.g., update state, show error message)
             const errorData = await response.json();
             throw new Error(errorData.message);
         }
